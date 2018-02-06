@@ -2,11 +2,13 @@
 
 **Name :** *Komkrit*
 
-**Nickname:** *Petch*
+**Nickname :** *Petch*
 
-**Job title:** *Programmer*
+**Job title :** *Programmer*
 
 ## Chapter 2
+
+* Chapter 2.1 : My first program
 
 ## Chapter 3
 
