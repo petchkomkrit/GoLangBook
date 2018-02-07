@@ -8,7 +8,7 @@
 
 ## Chapter 2
 
-* Chapter 2.1 : My first program
+* Chapter2-1 : My first program
 
 ## Chapter 3
 
