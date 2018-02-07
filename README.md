@@ -16,4 +16,6 @@
 
 * Chapter3-1 : Zero value
 
+* Chapter3-2 : Backtick and DoubleQuotes
+
 ## Chapter 4
