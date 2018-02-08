@@ -18,4 +18,6 @@
 
 * Chapter3-2 : Backtick and DoubleQuotes
 
+* Chapter3-3 : Floating point
+
 ## Chapter 4
