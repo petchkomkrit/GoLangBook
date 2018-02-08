@@ -5,9 +5,10 @@ import (
 )
 
 func main() {
-	fmt.Print("Exnter Number : ")
-	var input float64
-	fmt.Scanf("%f", &input)
-	output := input * 2
-	fmt.Println("Multiple 2 of input is :", output)
+	fmt.Print("Enter Fahrenheit : ")
+	var fahrenheit float64
+	fmt.Scanf("%f", &fahrenheit)
+	//celsius := (fahrenheit-32)*(5/9)
+	celsius := (fahrenheit-32)*5/9
+	fmt.Printf("Celsius is : %.2f", celsius)
 }
