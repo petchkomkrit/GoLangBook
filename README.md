@@ -30,4 +30,6 @@
 
 * Chapter5-1 : For Loop
 
-* Chapter5-1 : If condition
+* Chapter5-2 : If condition
+
+* Chapter5-3 : Switch condition
