@@ -20,7 +20,7 @@ func main() {
 
 		if number == randomNumber {
 			fmt.Println("Correct !!")
-			count = 5
+			return
 		} else if number > randomNumber {
 			fmt.Println("มากกว่า")
 		} else if number < randomNumber {
