@@ -14,12 +14,13 @@ func main() {
 	for count := 0; count <= 4; count++ {
 		var number int
 		
-		fmt.Print("Enter your number : ")
+		fmt.Print("\nEnter your number : ")
 		fmt.Scanf("%v\n", &number)
-		fmt.Println("Your number is :",number)
+		fmt.Print("Your number is : ",number," -> ")
 
 		if number == randomNumber {
 			fmt.Println("Correct !!")
+			fmt.Println("Random number is :",randomNumber)
 			return
 		} else if number > randomNumber {
 			fmt.Println("มากกว่า")
@@ -28,5 +29,5 @@ func main() {
 		}
 	}
 
-	fmt.Println("Random number is :",randomNumber)
+	
 }
