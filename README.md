@@ -53,4 +53,6 @@
 
 * Chapter7-2 : Slice(1)
 
-* Chapter7-2 : Slice(2)
+* Chapter7-3 : Slice(2)
+
+* Chapter7-4 : Copy slice
