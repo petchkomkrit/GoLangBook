@@ -41,3 +41,5 @@
 * Chapter6-1 : Start function(1)
 
 * Chapter6-2 : Start function(2)
+
+* Chapter6-2 : Multi return function
