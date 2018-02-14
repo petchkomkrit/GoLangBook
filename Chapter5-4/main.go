@@ -8,7 +8,7 @@ import (
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	randomNumber := rand.Intn(5)
+	randomNumber := rand.Intn(10)
 	//randomNumber := 5
 	
 	for count := 0; count <= 4; count++ {
