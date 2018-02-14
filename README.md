@@ -61,4 +61,6 @@
 
 * Chapter7-6 : Map(2)
 
-* Chapter7-6 : Map(3)
+* Chapter7-7 : Map(3)
+
+* Chapter7-8 : Range and collections
