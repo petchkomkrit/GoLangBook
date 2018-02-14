@@ -35,3 +35,7 @@
 * Chapter5-3 : Switch condition
 
 * Chapter5-4 : Practice
+
+## Chapter 6
+
+* Chapter6-1 : Start function
