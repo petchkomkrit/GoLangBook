@@ -58,3 +58,5 @@
 * Chapter7-4 : Copy slice
 
 * Chapter7-5 : Map
+
+* Chapter7-6 : Map
