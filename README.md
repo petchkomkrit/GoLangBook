@@ -42,4 +42,6 @@
 
 * Chapter6-2 : Start function(2)
 
-* Chapter6-2 : Multi return function
+* Chapter6-3 : Multi return function
+
+* Chapter6-4 : Argument of function
