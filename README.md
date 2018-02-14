@@ -50,3 +50,5 @@
 ## Chapter 7
 
 * Chapter7-1 : Array
+
+* Chapter7-2 : Slice
