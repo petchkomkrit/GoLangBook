@@ -38,4 +38,6 @@
 
 ## Chapter 6
 
-* Chapter6-1 : Start function
+* Chapter6-1 : Start function(1)
+
+* Chapter6-2 : Start function(2)
