@@ -45,3 +45,5 @@
 * Chapter6-3 : Multi return function
 
 * Chapter6-4 : Argument of function
+
+* Chapter6-5 : Refactor 5-2 (FizzBuzz)
