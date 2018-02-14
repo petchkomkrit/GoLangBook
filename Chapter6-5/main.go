@@ -1,27 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	fizzBuzz(1, 100)
-}
-
-func fizzBuzz(start int, end int) {
-	for number := start; number <= end; number++ {
-		if verifyFizzBuzz(number, 15) {
-			showFizzBuzzMessage(number, "FizzBuzz")
-		} else if verifyFizzBuzz(number, 5) {
-			showFizzBuzzMessage(number, "Fizz")
-		} else if verifyFizzBuzz(number, 3) {
-			showFizzBuzzMessage(number, "Buzz")
-		} else {
-			showFizzBuzzMessage(number, "")
-		}
+	for number := 1; number <= 100; number++ {
+		fmt.Println(fizzBuzz(number))
 	}
 }
 
-func showFizzBuzzMessage(number int, msg string) {
-	fmt.Println(number, msg)
+func fizzBuzz(number int) string {
+	var msg string
+	if verifyFizzBuzz(number, 15) {
+		msg = "FizzBuzz"
+	} else if verifyFizzBuzz(number, 5) {
+		msg = "Fizz"
+	} else if verifyFizzBuzz(number, 3) {
+		msg = "Buzz"
+	} else {
+		msg = strconv.Itoa(number)
+	}
+
+	return msg
 }
 
 func verifyFizzBuzz(number int, mod int) (result bool) {
