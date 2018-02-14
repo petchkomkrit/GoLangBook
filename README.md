@@ -47,6 +47,7 @@
 * Chapter6-4 : Argument of function
 
 * Chapter6-5 : Refactor 5-2 (FizzBuzz)
+
 ## Chapter 7
 
 * Chapter7-1 : Array
