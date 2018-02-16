@@ -13,79 +13,80 @@ func main() {
 }
 
 func weatherCelcius(celsius int, message string) string {
-	one := map[string]string{
-		"one":   "   ",
-		"two":   "  |",
-		"three": "  |",
+
+	var number [11]map[string]string
+	number[0] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": "| |",
+		"thirdLine":  "|_|",
 	}
-	two := map[string]string{
-		"one":   " _ ",
-		"two":   " _|",
-		"three": "|_ ",
+	number[1] = map[string]string{
+		"firstLine":  "   ",
+		"secondLine": "  |",
+		"thirdLine":  "  |",
 	}
-	three := map[string]string{
-		"one":   " _ ",
-		"two":   " _|",
-		"three": " _|",
+	number[2] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": " _|",
+		"thirdLine":  "|_ ",
 	}
-	four := map[string]string{
-		"one":   "   ",
-		"two":   "|_|",
-		"three": "  |",
+	number[3] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": " _|",
+		"thirdLine":  " _|",
 	}
-	five := map[string]string{
-		"one":   " _ ",
-		"two":   "|_ ",
-		"three": " _|",
+	number[4] = map[string]string{
+		"firstLine":  "   ",
+		"secondLine": "|_|",
+		"thirdLine":  "  |",
 	}
-	six := map[string]string{
-		"one":   " _ ",
-		"two":   "|_ ",
-		"three": "|_|",
+	number[5] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": "|_ ",
+		"thirdLine":  " _|",
 	}
-	seven := map[string]string{
-		"one":   " _ ",
-		"two":   "  |",
-		"three": "  |",
+	number[6] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": "|_ ",
+		"thirdLine":  "|_|",
 	}
-	eight := map[string]string{
-		"one":   " _ ",
-		"two":   "|_|",
-		"three": "|_|",
+	number[7] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": "  |",
+		"thirdLine":  "  |",
 	}
-	nine := map[string]string{
-		"one":   " _ ",
-		"two":   "|_|",
-		"three": " _|",
+	number[8] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": "|_|",
+		"thirdLine":  "|_|",
 	}
-	zero := map[string]string{
-		"one":   " _ ",
-		"two":   "| |",
-		"three": "|_|",
+	number[9] = map[string]string{
+		"firstLine":  " _ ",
+		"secondLine": "|_|",
+		"thirdLine":  " _|",
 	}
-	var number [10]map[string]string
-	number[1] = one
-	number[2] = two
-	number[3] = three
-	number[4] = four
-	number[5] = five
-	number[6] = six
-	number[7] = seven
-	number[8] = eight
-	number[9] = nine
-	number[0] = zero
+	number[10] = map[string]string{
+		"firstLine":  "   ",
+		"secondLine": " _ ",
+		"thirdLine":  "   ",
+	}
 
 	celsiusStr := strconv.Itoa(celsius)
-	celsiusLenght := len(celsiusStr)
 
 	var line [3]string
-	for i := 1; i <= celsiusLenght; i++ {
+	for i := 1; i <= len(celsiusStr); i++ {
 		celsiusExtractStr := celsiusStr[i-1 : i]
-		celsiusNumber, _ := strconv.Atoi(celsiusExtractStr)
 
-		line[0] = line[0] + number[celsiusNumber]["one"]
-		line[1] = line[1] + number[celsiusNumber]["two"]
-		line[2] = line[2] + number[celsiusNumber]["three"]
+		var celsiusNumber int
+		if celsiusExtractStr == "-" {
+			celsiusNumber = 10
+		} else {
+			celsiusNumber, _ = strconv.Atoi(celsiusExtractStr)
+		}
+
+		line[0] = line[0] + number[celsiusNumber]["firstLine"]
+		line[1] = line[1] + number[celsiusNumber]["secondLine"]
+		line[2] = line[2] + number[celsiusNumber]["thirdLine"]
 	}
 	line[2] = line[2] + " c"
 
