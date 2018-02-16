@@ -6,27 +6,89 @@ import (
 )
 
 func main() {
-	weather(91, "Chaing-mai cold")
+	fmt.Println(weather(9, "Chaing-mai cold"))
 }
 
-func weather(celsius int, message string) {
+func weather(celsius int, message string) string {
+	one := map[string]string{
+		"one":   "   ",
+		"two":   "  |",
+		"three": "  |",
+	}
+	two := map[string]string{
+		"one":   " _ ",
+		"two":   " _|",
+		"three": "|_ ",
+	}
+	three := map[string]string{
+		"one":   " _ ",
+		"two":   " _|",
+		"three": " _|",
+	}
+	four := map[string]string{
+		"one":   "   ",
+		"two":   "|_|",
+		"three": "  |",
+	}
+	five := map[string]string{
+		"one":   " _ ",
+		"two":   "|_ ",
+		"three": " _|",
+	}
+	six := map[string]string{
+		"one":   " _ ",
+		"two":   "|_ ",
+		"three": "|_|",
+	}
+	seven := map[string]string{
+		"one":   " _ ",
+		"two":   "  |",
+		"three": "  |",
+	}
+	eight := map[string]string{
+		"one":   " _ ",
+		"two":   "|_|",
+		"three": "|_|",
+	}
 	nine := map[string]string{
 		"one":   " _ ",
 		"two":   "|_|",
 		"three": " _|",
 	}
+	zero := map[string]string{
+		"one":   " _ ",
+		"two":   "| |",
+		"three": "|_|",
+	}
 	var number [10]map[string]string
+	number[1] = one
+	number[2] = two
+	number[3] = three
+	number[4] = four
+	number[5] = five
+	number[6] = six
+	number[7] = seven
+	number[8] = eight
 	number[9] = nine
+	number[0] = zero
 
 	celsiusStr := strconv.Itoa(celsius)
-	celsiusStr1 := celsiusStr[:1]
-	//celsiusStr2 := celsiusStr[1:]
-	celsius1, _ := strconv.Atoi(celsiusStr1)
-	//celsius2, _ := strconv.Atoi(celsiusStr2)
+	celsiusLenght := len(celsiusStr)
 
-	fmt.Println(number[celsius1]["one"])
-	fmt.Println(number[celsius1]["two"])
-	fmt.Println(number[celsius1]["three"])
+	var line [3]string
+	for i := 1; i <= celsiusLenght; i++ {
+		celsiusExtractStr := celsiusStr[i-1 : i]
+		celsiusNumber, _ := strconv.Atoi(celsiusExtractStr)
 
-	fmt.Println(message)
+		line[0] = line[0] + number[celsiusNumber]["one"]
+		line[1] = line[1] + number[celsiusNumber]["two"]
+		line[2] = line[2] + number[celsiusNumber]["three"]
+	}
+	line[2] = line[2] + " c"
+
+	for i, _ := range line {
+		fmt.Println(line[i])
+	}
+
+	return message
 }
