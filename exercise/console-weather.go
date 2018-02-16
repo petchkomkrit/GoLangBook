@@ -6,10 +6,13 @@ import (
 )
 
 func main() {
-	fmt.Println(weather(9, "Chaing-mai cold"))
+	fmt.Println(weatherCelcius(25, "Bangkok few cloud"))
+	fmt.Println(weatherCelcius(34, "Tak sunny"))
+	fmt.Println(weatherCelcius(17, "Phuket rainy"))
+	fmt.Println(weatherCelcius(9, "Chaing-mai cold"))
 }
 
-func weather(celsius int, message string) string {
+func weatherCelcius(celsius int, message string) string {
 	one := map[string]string{
 		"one":   "   ",
 		"two":   "  |",
