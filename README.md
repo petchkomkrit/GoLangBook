@@ -90,4 +90,8 @@
 
 * Chapter9-1 : struct
 
-* Chapter9-2 : struct and method
+* Chapter9-2 : specific type
+
+## Chapter 10
+
+* Chapter10-1 : method
