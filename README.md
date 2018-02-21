@@ -81,3 +81,5 @@
 * Chapter8-3 : Pass by value (Array)
 
 * Chapter8-4 : Pass by reference (Array)
+
+* Chapter8-5 : Pass by reference (Slice)
