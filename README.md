@@ -71,3 +71,7 @@
 * Chapter7-10 : Range and collections(3)
 
 * Chapter7-11 : Range and collections(4)
+
+## Chapter 8
+
+* Chapter8-1 : Pass by value
