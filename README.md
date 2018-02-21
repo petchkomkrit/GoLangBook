@@ -85,3 +85,7 @@
 * Chapter8-5 : Pass by reference (Slice)
 
 * Chapter8-6 : Pass by reference (Map)
+
+## Chapter 9
+
+* Chapter9-1 : struct
