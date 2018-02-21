@@ -89,3 +89,5 @@
 ## Chapter 9
 
 * Chapter9-1 : struct
+
+* Chapter9-2 : struct and method
