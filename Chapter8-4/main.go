@@ -12,7 +12,8 @@ func main() {
 func double(nums *[3]int) {
 	fmt.Printf("double addr %p\n", nums)
 	for i := range *nums {
-		(*nums)[i] *= 2
+		nums[i] *= 2
+		//(*nums)[i] *= 2
 	}
 	fmt.Println(*nums)
 }
