@@ -88,10 +88,14 @@
 
 ## Chapter 9
 
-* Chapter9-1 : struct
+* Chapter9-1 : Struct
 
-* Chapter9-2 : specific type
+* Chapter9-2 : Specific type
 
 ## Chapter 10
 
-* Chapter10-1 : method
+* Chapter10-1 : Method
+
+## Chapter 11
+
+* Chapter11-1 : Interface
