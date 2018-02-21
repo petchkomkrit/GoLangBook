@@ -16,4 +16,17 @@ func main() {
 	c1 := new(Circle)
 	fmt.Printf("c1 type : %T\n", c1)
 	fmt.Println(c1.x, c1.y, c1.r)
+
+	c2 := Circle{x: 0, y: 0, r: 0}
+	fmt.Printf("c2 type : %T\n", c2)
+	fmt.Println(c2.x, c2.y, c2.r)
+
+	c3 := NewCircle(1, 2, 3)
+	fmt.Printf("c3 type : %T\n", c3)
+	fmt.Println(c3.x, c3.y, c3.r)
+
+}
+
+func NewCircle(x, y, r float64) *Circle {
+	return &Circle{x, y, r}
 }
