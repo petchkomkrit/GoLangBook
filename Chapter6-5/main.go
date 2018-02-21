@@ -12,23 +12,14 @@ func main() {
 }
 
 func fizzBuzz(number int) string {
-	var msg string
-	if verifyFizzBuzz(number, 15) {
-		msg = "FizzBuzz"
-	} else if verifyFizzBuzz(number, 5) {
-		msg = "Fizz"
-	} else if verifyFizzBuzz(number, 3) {
-		msg = "Buzz"
-	} else {
-		msg = strconv.Itoa(number)
+	mod := [3]int{15, 5, 3}
+	msg := [3]string{"FizzBuzz", "Fizz", "Buzz"}
+
+	for i := 0; i < len(mod); i++ {
+		if number%mod[i] == 0 {
+			return msg[i]
+		}
 	}
 
-	return msg
-}
-
-func verifyFizzBuzz(number int, mod int) (result bool) {
-	if number%mod == 0 {
-		result = true
-	}
-	return
+	return strconv.Itoa(number)
 }
