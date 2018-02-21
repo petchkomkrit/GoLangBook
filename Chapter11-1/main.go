@@ -25,11 +25,7 @@ func (r Rectangle) area() float64 {
 	return r.w * r.h
 }
 
-func (r Rectangle1) area() float64 {
-	return r.w * r.h * 2
-}
-
-func (c Circle) area() float64 {
+func (c *Circle) area() float64 {
 	return math.Pi * c.r * c.r
 }
 
@@ -42,12 +38,9 @@ func printArea(m measure) {
 }
 
 func main() {
-	c := Circle{0, 0, 5}
+	c := &Circle{0, 0, 5}
 	printArea(c)
 
 	r := Rectangle{3, 4}
 	printArea(r)
-
-	r1 := Rectangle1{3, 4}
-	printArea(r1)
 }
