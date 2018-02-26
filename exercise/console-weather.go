@@ -90,7 +90,7 @@ func weatherCelcius(celsius int, message string) string {
 	}
 	line[2] = line[2] + " c"
 
-	for i, _ := range line {
+	for i := range line {
 		fmt.Println(line[i])
 	}
 
