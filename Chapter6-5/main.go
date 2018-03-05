@@ -23,31 +23,19 @@ func fizzBuzz(number int) string {
 
 	// return strconv.Itoa(number)
 
-	fizzBuzzFunc := func(n int) (string, bool) {
-		if n%15 == 0 {
-			return "FizzBuzz", true
+	fizzBuzzFunc := func(mod int, str string) func(n int) (string, bool) {
+		return func(n int) (string, bool) {
+			if n%mod == 0 {
+				return str, true
+			}
+			return "", false
 		}
-		return "", false
-	}
-
-	buzzFunc := func(n int) (string, bool) {
-		if n%5 == 0 {
-			return "Buzz", true
-		}
-		return "", false
-	}
-
-	fizzFunc := func(n int) (string, bool) {
-		if n%3 == 0 {
-			return "Fizz", true
-		}
-		return "", false
 	}
 
 	fizzBuzzArray := [...]func(n int) (string, bool){
-		fizzBuzzFunc,
-		buzzFunc,
-		fizzFunc,
+		fizzBuzzFunc(15, "FizzBuzz"),
+		fizzBuzzFunc(5, "Buzz"),
+		fizzBuzzFunc(3, "Fizzz"),
 	}
 
 	for i := 0; i < len(fizzBuzzArray); i++ {
