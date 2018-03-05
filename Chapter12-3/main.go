@@ -5,8 +5,12 @@ import (
 )
 
 func main() {
-	fmt.Println(
-		func(a, b int) int {
+	addFunc := func(a int) func(b int) int {
+		return func(b int) int {
 			return a + b
-		}(2, 3))
+		}
+	}
+
+	addTwoWith := addFunc(2)
+	fmt.Println(addTwoWith(3))
 }
