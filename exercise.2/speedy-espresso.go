@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
+
+var wg sync.WaitGroup
 
 func main() {
 	volumn := 200
@@ -24,7 +27,7 @@ func order(volumn int) (container []string) {
 	order2 := make(chan string)
 
 	go cashier(order, volumn)
-	go barista(order, order1)
+	go barista(order, order1, volumn)
 	go waiter(order1, order2)
 
 	for orderFinish := range order2 {
@@ -45,15 +48,17 @@ func cashier(orderOut chan<- string, volumn int) {
 	close(orderOut)
 }
 
-func barista(orderIn <-chan string, orderOut chan<- string) {
+func barista(orderIn <-chan string, orderOut chan<- string, volumn int) {
 
+	var wgBarista sync.WaitGroup
+	wgBarista.Add(4)
+
+	wg.Add(volumn)
 	for coffee := range orderIn {
 		//barista
-		//coffee := <-orderIn
-		time.Sleep(100 * time.Millisecond)
-		coffee = fmt.Sprintf("%s %s", coffee, "Espresso")
-		orderOut <- coffee
+		go brew(coffee, orderOut)
 	}
+	wg.Wait()
 	close(orderOut)
 }
 
@@ -61,10 +66,16 @@ func waiter(orderIn <-chan string, orderOut chan<- string) {
 
 	for coffee := range orderIn {
 		//waiter
-		//coffee := <-orderIn
 		time.Sleep(5 * time.Millisecond)
 		coffee = fmt.Sprintf("%s %s", coffee, "ready :)")
 		orderOut <- coffee
 	}
 	close(orderOut)
+}
+
+func brew(orderIn string, orderOut chan<- string) {
+	defer wg.Done()
+	time.Sleep(100 * time.Millisecond)
+	coffee := fmt.Sprintf("%s %s", orderIn, "Espresso")
+	orderOut <- coffee
 }
