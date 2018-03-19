@@ -4,8 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"math"
-	"mux"
 	"net/http"
+	"time"
+
+	"github.com/gorilla/mux"
 )
 
 type cityWeather struct {
@@ -58,39 +60,67 @@ type cityWeather struct {
 	Cod  int    `json:"cod"`
 }
 
-func HomePageHandle(w http.ResponseWriter, r *http.Request) {
+func singleCity(w http.ResponseWriter, r *http.Request) {
+
+	start := time.Now()
+
 	vars := mux.Vars(r)
-	name := vars["name"]
+	city := getCity(vars["name"])
 
-	if vars["name"] == "" {
-		name = "All"
-	}
-
-	url := "http://localhost:8882/api/v1/weather/" + name
-	rep, err := http.Get(url)
-	if err != nil {
-		fmt.Fprintf(w, "ERROR, %s", err)
-	}
-
-	city := new(cityWeather)
-	json.NewDecoder(rep.Body).Decode(city)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	fmt.Fprintf(w, "%v\n%vc %v", city.Name, int(math.Round(city.Main.Temp)), city.Weather[0].Description)
 
-	/*
-		if err != nil {
-			fmt.Fprintf(w, "ERROR, %s!", err)
-		}
+	end := time.Now()
+	fmt.Fprintf(w, "\n%v", end.Sub(start))
+}
 
-		fmt.Fprintf(w, "%s", rep.Body)
+func allCity(w http.ResponseWriter, r *http.Request) {
 
-		fmt.Fprintf(w, "Hello, %s!", name) */
+	cityName := []string{
+		"bangkok",
+		"hobart",
+		"nairobi",
+		"newyork",
+		"kupang",
+	}
+
+	start := time.Now()
+
+	var allCity []*cityWeather
+
+	for i := range cityName {
+		allCity = append(allCity, getCity(cityName[i]))
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+
+	for i := range allCity {
+		showMsg(w, allCity[i])
+	}
+
+	end := time.Now()
+	fmt.Fprintf(w, "\n%v", end.Sub(start))
+}
+
+func getCity(citiName string) *cityWeather {
+	url := "http://localhost:8882/api/v1/weather/" + citiName
+	rep, _ := http.Get(url)
+
+	city := new(cityWeather)
+	json.NewDecoder(rep.Body).Decode(city)
+	return city
+}
+
+func showMsg(w http.ResponseWriter, city *cityWeather) {
+	fmt.Fprintf(w, "%v\n%vc %v\n\n", city.Name, int(math.Round(city.Main.Temp)), city.Weather[0].Description)
 }
 
 func NewRouter() http.Handler {
 	r := mux.NewRouter()
-	r.HandleFunc("/weather/{name}", HomePageHandle).Methods("GET")
+	r.HandleFunc("/weather/all", allCity).Methods("GET")
+	r.HandleFunc("/weather/{name}", singleCity).Methods("GET")
 	return r
 }
 
